@@ -1,29 +1,32 @@
-<h1>My blog</h1>
- <%= link_to 'My Blog', controller: 'articles', id: "link_to_home" %>
- <%= link_to 'New article', new_article_path %>
- <br>
- <p>
- 	<%= form_tag(search_path, method: "get") do %>
-  	<%= label_tag(:q, "Search for:") %>
-  	<%= text_field_tag(:q) %>
-  	<%= submit_tag("Search") %>
-	<% end %>
- </p>
- <h1>Listing articles</h1>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="container">
+  <div class="row" id="header">
+    <div class="col-sm-6">
+        <h1><%= link_to 'My Blog', controller: 'articles', id: "link_to_home" %></h1>
+    </div>
+    <div class="col-sm-6">
+      <%= form_tag(search_path, method: "get", id: "search_box") do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+      <% end %>       
+    </div>
+  </div>
+   <div class="list_posts">
+   <h2>Listing articles</h2>
+    <% @articles.each do |article| %>
+      <div class="post">
+        <h2><%= link_to article.title, article_path(article) %></h2>
+        <div id="post_content"><%= article.text %>
+        <%= link_to 'Show', article_path(article) %>
+        <%= link_to 'Edit', edit_article_path(article) %>
+        <%= link_to 'Destroy', article_path(article),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+</div>

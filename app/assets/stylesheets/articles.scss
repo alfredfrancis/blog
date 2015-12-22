@@ -1,3 +1,18 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#search_box{
+	margin:15px;
+	float:right;
+}
+
+.list_posts{
+	margin-top:10px;
+}
+
+.list_posts .post{
+	border-bottom: 1px 000;
+
+}

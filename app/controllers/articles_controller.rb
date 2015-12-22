@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 	http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
 	def index
     	@articles = Article.all
   end
@@ -34,6 +35,10 @@ class ArticlesController < ApplicationController
 	  else
 	    render 'edit'
 	  end
+	end
+
+	def search_for_posts
+		@articles = Article.search(params[:q]).order("created_at DESC")
 	end
 	
 	def destroy

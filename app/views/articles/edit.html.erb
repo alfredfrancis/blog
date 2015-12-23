@@ -1,5 +1,25 @@
+<div class="container">
+  <div class="row" id="header">
+    <div class="col-sm-6">
+        <h1><%= link_to 'My Blog', controller: 'articles', id: "link_to_home" %></h1><br><i>My first rails blog</i>
+    </div>
+    <div class="col-sm-6">
+      <%= form_tag(search_path, method: "get", id: "search_box") do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+      <% end %>       
+    </div>
+  </div>
 <h1>New article</h1>
  
 <%= render 'form' %>
  
 <%= link_to 'Back', articles_path %>
+
+
+
+</div>
+
+
+
